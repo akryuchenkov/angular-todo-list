@@ -1,0 +1,12 @@
+.container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 6px;
+
+  background: url(../../../../../assets/tasks-list-background.jpg);
+  background-size: cover;
+}

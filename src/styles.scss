@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: 'Segue Regular', Fallback, sans-serif;
+}
+
+@font-face {
+  font-family: "Segue Regular";
+  src: url("./assets/fonts/Segoe\ UI.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Segue Italic";
+  src: url("./assets/fonts/Segoe\ UI\ Italic.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Segue Bold";
+  src: url("./assets/fonts/Segoe\ UI\ Bold.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Segue Bold Italic";
+  src: url("./assets/fonts/Segoe\ UI\ Bold\ Italic.ttf") format("ttf");
+}

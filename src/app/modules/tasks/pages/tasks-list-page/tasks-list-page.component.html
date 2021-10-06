@@ -1,0 +1,9 @@
+<section class="container">
+  <app-tasks-list title="Текущие задачи" [tasks]="newTasks"> </app-tasks-list>
+  <app-tasks-list title="Завершенные задачи" [tasks]="completedTasks"></app-tasks-list>
+
+  <section class="input">
+    <input type="text" [formControl]="taskText" />
+    <button [disabled]="taskText.invalid" (click)="addTask()">Добавить</button>
+  </section>
+</section>

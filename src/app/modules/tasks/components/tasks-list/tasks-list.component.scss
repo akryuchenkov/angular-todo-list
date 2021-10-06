@@ -1,0 +1,28 @@
+.list {
+  width: 100%;
+
+  & > h2 {
+    color: white;
+  }
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+
+.input {
+  width: 100%;
+}
+
+.task {
+  background: white;
+  color: black;
+
+  padding: 4px 8px;
+  border-radius: 7px;
+
+  width: calc(100% - 16px);
+
+  &_completed {
+    text-decoration: line-through;
+  }
+}
