@@ -7,9 +7,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskPageComponent } from './pages/task-page/task-page.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
 
 @NgModule({
-  declarations: [TasksListPageComponent, TasksListComponent],
+  declarations: [TasksListPageComponent, TasksListComponent, TaskPageComponent, TaskItemComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

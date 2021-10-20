@@ -51,14 +51,14 @@ export class TasksListPageComponent implements OnInit {
 
   toggleIsFinished() {
     const self = this;
-    return (id: number) => {
+    return (id: number, isFinished: boolean) => {
       const task = self.tasks.find((task) => task.id == id);
       if (!task) {
         return;
       }
 
       const tempTask = TaskModel.copy(task);
-      tempTask.isFinished = !tempTask.isFinished;
+      tempTask.isFinished = isFinished;
 
       self.tasksService.update(tempTask).subscribe(() => self.fetch());
     };

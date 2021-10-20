@@ -1,11 +1,18 @@
 <section class="list">
-  <h2>{{title}}</h2>
-  <div *ngFor="let task of tasks" class="task">
+  <h2>{{ title }}</h2>
+
+  <app-task-item
+    *ngFor="let task of tasks"
+    (dblclick)="toTask(task.id || -1)"
+    [task]="task"
+    [toggleIsFinished]="toggleIsFinished"
+  ></app-task-item>
+  <!-- <div class="task">
     <button (click)="toggleIsFinished(task.id || -1)">
       {{ !task.isFinished ? "Завершить" : "Вернуть" }}
     </button>
     <span [class.task_completed]="task.isFinished">
       {{ task.text }}
     </span>
-  </div>
+  </div> -->
 </section>

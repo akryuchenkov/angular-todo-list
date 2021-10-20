@@ -1,8 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
+  font-family: "Segue Regular", Fallback, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+body {
   margin: 0;
-  font-family: 'Segue Regular', Fallback, sans-serif;
+  padding: 0;
 }
 
 @font-face {

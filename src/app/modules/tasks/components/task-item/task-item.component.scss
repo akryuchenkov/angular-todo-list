@@ -1,0 +1,35 @@
+.task {
+  height: 40px;
+  width: 100%;
+
+  border-radius: 5px;
+
+  padding: 5px 13px;
+
+  background: white;
+
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.task_completed {
+  text-decoration: line-through;
+}
+
+.task_text {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(111, 112, 116);
+}
+
+.task_description {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(167, 167, 167);
+
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

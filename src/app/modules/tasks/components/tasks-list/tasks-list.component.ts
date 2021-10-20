@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TaskModel } from 'src/app/models/task.model';
+import { Router } from '@angular/router';
+import { TaskId, TaskModel } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-tasks-list',
@@ -14,9 +15,13 @@ export class TasksListComponent implements OnInit {
   tasks: TaskModel[] = [];
 
   @Input()
-  toggleIsFinished: (index: number) => void = () => {};
+  toggleIsFinished: (id: number, isFinished: boolean) => void = () => {};
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  toTask(id: TaskId) {
+    this.router.navigate(['/', id]);
+  }
 }

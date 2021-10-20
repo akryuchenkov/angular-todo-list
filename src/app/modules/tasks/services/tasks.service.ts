@@ -18,6 +18,12 @@ export class TasksService {
 
   getByUser() {}
 
+  getById(id: TaskId) {
+    return this.http
+      .get(`${this.baseUrl}/${id}`)
+      .pipe(map((task) => TaskModel.fromDto(task)));
+  }
+
   add(task: TaskModel) {
     return this.http.post(`${this.baseUrl}/`, task);
   }

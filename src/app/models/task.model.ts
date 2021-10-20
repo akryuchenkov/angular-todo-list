@@ -34,4 +34,8 @@ export class TaskModel {
       task.id
     );
   }
+
+  static empty() {
+    return new TaskModel('', '', 0, false, -1, -1, -1);
+  }
 }

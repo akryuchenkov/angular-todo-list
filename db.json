@@ -2,7 +2,7 @@
   "tasks": [
     {
       "text": "test",
-      "description": "",
+      "description": "testtesttesttesttesttesttesttest",
       "date": 1634712097466,
       "isFinished": false,
       "user": -1,
@@ -11,16 +11,16 @@
     },
     {
       "text": "tessdfsdf",
-      "description": "",
+      "description": "tessdfsdf tessdfsdf tessdfsdftessdfsdftessdfsdftessdfsdftessdfsdf",
       "date": 1634712691598,
-      "isFinished": false,
+      "isFinished": true,
       "user": -1,
       "group": -1,
       "id": 2
     },
     {
       "text": "ооооо",
-      "description": "",
+      "description": "оооооооооооооооооооооооооооооооооооооооо ооооооооооооооо ооооооооооооооо ооооооооооооооооооооооооооооооооооооооооооооооооооооооо оооооооооооооооооооооооооооооооооооооооо",
       "date": 1634713038171,
       "isFinished": false,
       "user": -1,

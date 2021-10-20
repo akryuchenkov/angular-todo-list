@@ -1,0 +1,16 @@
+<div class="task">
+  <div>
+    <input
+      type="checkbox"
+      [checked]="task.isFinished"
+      (click)="onChangeIsFinished($event)"
+    />
+  </div>
+  <div>
+    <h2 class="task_text" [class.task_completed]="task.isFinished">
+      {{ task.text }}
+    </h2>
+    <p class="task_description">{{ task.description }}</p>
+  </div>
+  <div></div>
+</div>
