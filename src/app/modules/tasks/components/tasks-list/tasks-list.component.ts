@@ -4,7 +4,7 @@ import { TaskModel } from 'src/app/models/task.model';
 @Component({
   selector: 'app-tasks-list',
   templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.scss']
+  styleUrls: ['./tasks-list.component.scss'],
 })
 export class TasksListComponent implements OnInit {
   @Input()
@@ -13,12 +13,10 @@ export class TasksListComponent implements OnInit {
   @Input()
   tasks: TaskModel[] = [];
 
-  constructor() { }
+  @Input()
+  toggleIsFinished: (index: number) => void = () => {};
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
-  toggleIsFinished(index: number) {
-    this.tasks[index].isFinished = !this.tasks[index].isFinished;
-  }
+  ngOnInit(): void {}
 }

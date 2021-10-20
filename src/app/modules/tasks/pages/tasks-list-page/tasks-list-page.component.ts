@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TaskModel } from 'src/app/models/task.model';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   templateUrl: './tasks-list-page.component.html',
@@ -22,25 +23,44 @@ export class TasksListPageComponent implements OnInit {
     return this.tasks.filter((task) => task.isFinished);
   }
 
-  constructor() {}
+  constructor(private tasksService: TasksService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetch();
+  }
+
+  fetch() {
+    this.tasksService.getAll().subscribe((tasks) => (this.tasks = tasks));
+  }
 
   addTask() {
-    this.tasks.push(
-      new TaskModel(
-        this.taskText.value,
-        '',
-        new Date().getTime(),
-        false,
-        -1,
-        -1
+    this.tasksService
+      .add(
+        new TaskModel(
+          this.taskText.value,
+          '',
+          new Date().getTime(),
+          false,
+          -1,
+          -1
+        )
       )
-    );
+      .subscribe(() => this.fetch());
     this.taskText.setValue('');
   }
 
-  toggleIsFinished(index: number) {
-    this.tasks[index].isFinished = !this.tasks[index].isFinished;
+  toggleIsFinished() {
+    const self = this;
+    return (id: number) => {
+      const task = self.tasks.find((task) => task.id == id);
+      if (!task) {
+        return;
+      }
+
+      const tempTask = TaskModel.copy(task);
+      tempTask.isFinished = !tempTask.isFinished;
+
+      self.tasksService.update(tempTask).subscribe(() => self.fetch());
+    };
   }
 }

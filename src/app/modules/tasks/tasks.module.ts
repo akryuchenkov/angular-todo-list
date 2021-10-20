@@ -6,18 +6,16 @@ import { TasksListPageComponent } from './pages/tasks-list-page/tasks-list-page.
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    TasksListPageComponent,
-    TasksListComponent
-  ],
+  declarations: [TasksListPageComponent, TasksListComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    TasksRoutingModule
-  ]
+    HttpClientModule,
+    TasksRoutingModule,
+  ],
 })
-export class TasksModule { }
+export class TasksModule {}
