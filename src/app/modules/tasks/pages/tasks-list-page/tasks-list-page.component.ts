@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TaskModel } from 'src/app/models/task.model';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
@@ -23,14 +24,19 @@ export class TasksListPageComponent implements OnInit {
     return this.tasks.filter((task) => task.isFinished);
   }
 
-  constructor(private tasksService: TasksService) {}
+  constructor(
+    private tasksService: TasksService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.fetch();
   }
 
   fetch() {
-    this.tasksService.getAll().subscribe((tasks) => (this.tasks = tasks));
+    this.tasksService
+      .getByUser(this.authService.currentUser?.id ?? -1)
+      .subscribe((tasks) => (this.tasks = tasks));
   }
 
   addTask() {

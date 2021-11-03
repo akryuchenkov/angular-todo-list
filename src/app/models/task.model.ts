@@ -1,3 +1,5 @@
+import { UserId } from './user.model';
+
 export type TaskId = number;
 
 export class TaskModel {
@@ -6,7 +8,7 @@ export class TaskModel {
     public description: string,
     public date: number,
     public isFinished: boolean,
-    public user: number,
+    public user: UserId,
     public group: number,
     public id?: TaskId
   ) {}

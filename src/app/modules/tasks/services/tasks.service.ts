@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TaskId, TaskModel } from 'src/app/models/task.model';
 import { map } from 'rxjs/operators';
+import { UserId } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,11 @@ export class TasksService {
       .pipe(map((tasks) => tasks.map((task) => TaskModel.fromDto(task))));
   }
 
-  getByUser() {}
+  getByUser(userId: UserId) {
+    return this.http
+      .get<Object[]>(`${this.baseUrl}?user=${userId}`)
+      .pipe(map((tasks) => tasks.map((task) => TaskModel.fromDto(task))));
+  }
 
   getById(id: TaskId) {
     return this.http

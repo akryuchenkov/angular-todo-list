@@ -5,7 +5,7 @@
       "description": "testtesttesttesttesttesttesttest",
       "date": 1634712097466,
       "isFinished": false,
-      "user": -1,
+      "user": 1,
       "group": -1,
       "id": 1
     },
@@ -14,7 +14,7 @@
       "description": "tessdfsdf tessdfsdf tessdfsdftessdfsdftessdfsdftessdfsdftessdfsdf",
       "date": 1634712691598,
       "isFinished": false,
-      "user": -1,
+      "user": 1,
       "group": -1,
       "id": 2
     },
@@ -23,11 +23,35 @@
       "description": "оооооооооооооооооооооооооооооооооооооооо ооооооооооооооо ооооооооооооооо ооооооооооооооооооооооооооооооооооооооооооооооооооооооо оооооооооооооооооооооооооооооооооооооооо",
       "date": 1634713038171,
       "isFinished": true,
-      "user": -1,
+      "user": 1,
+      "group": -1,
+      "id": 3
+    },
+    {
+      "text": "fdghdfgh",
+      "description": "tessdfsdf tessdfsdf tessdfsdftessdfsdftessdfsdftessdfsdftessdfsdf",
+      "date": 1634712691598,
+      "isFinished": false,
+      "user": 2,
+      "group": -1,
+      "id": 2
+    },
+    {
+      "text": "hgjkhjk",
+      "description": "оооооооооооооооооооооооооооооооооооооооо ооооооооооооооо ооооооооооооооо ооооооооооооооооооооооооооооооооооооооооооооооооооооооо оооооооооооооооооооооооооооооооооооооооо",
+      "date": 1634713038171,
+      "isFinished": true,
+      "user": 2,
       "group": -1,
       "id": 3
     }
   ],
   "groups": [],
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "login": "test",
+      "password": "test"
+    }
+  ]
 }
