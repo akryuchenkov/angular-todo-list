@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskId, TaskModel } from 'src/app/models/task.model';
 
@@ -14,8 +14,12 @@ export class TasksListComponent implements OnInit {
   @Input()
   tasks: TaskModel[] = [];
 
-  @Input()
-  toggleIsFinished: (id: number, isFinished: boolean) => void = () => {};
+  @Output()
+  toggleIsFinishedEvent = new EventEmitter<TaskModel>();
+
+  toggleIsFinished(task: TaskModel) {
+    this.toggleIsFinishedEvent.emit(task);
+  }
 
   constructor(private router: Router) {}
 

@@ -49,18 +49,10 @@ export class TasksListPageComponent implements OnInit {
     this.taskText.setValue('');
   }
 
-  toggleIsFinished() {
-    const self = this;
-    return (id: number, isFinished: boolean) => {
-      const task = self.tasks.find((task) => task.id == id);
-      if (!task) {
-        return;
-      }
+  toggleIsFinished(task: TaskModel) {
+    const tempTask = TaskModel.copy(task);
+    tempTask.isFinished = !tempTask.isFinished;
 
-      const tempTask = TaskModel.copy(task);
-      tempTask.isFinished = isFinished;
-
-      self.tasksService.update(tempTask).subscribe(() => self.fetch());
-    };
+    this.tasksService.update(tempTask).subscribe(() => this.fetch());
   }
 }

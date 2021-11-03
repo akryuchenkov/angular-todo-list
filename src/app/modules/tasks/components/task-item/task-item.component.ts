@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskModel } from 'src/app/models/task.model';
 
 @Component({
@@ -10,14 +10,14 @@ export class TaskItemComponent implements OnInit {
   @Input()
   task = TaskModel.empty();
 
-  @Input()
-  toggleIsFinished: (id: number, isFinished: boolean) => void = () => {};
+  @Output()
+  toggleIsFinishedEvent = new EventEmitter<TaskModel>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onChangeIsFinished(e: any) {
-    this.toggleIsFinished(this.task.id || -1, e.target.checked);
+    this.toggleIsFinishedEvent.emit(this.task);
   }
 }

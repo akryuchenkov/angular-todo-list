@@ -2,13 +2,13 @@
   <app-tasks-list
     title="Текущие задачи"
     [tasks]="newTasks"
-    [toggleIsFinished]="toggleIsFinished()"
+    (toggleIsFinishedEvent)="toggleIsFinished($event)"
   >
   </app-tasks-list>
   <app-tasks-list
     title="Завершенные задачи"
     [tasks]="completedTasks"
-    [toggleIsFinished]="toggleIsFinished()"
+    (toggleIsFinishedEvent)="toggleIsFinished($event)"
   ></app-tasks-list>
 
   <section class="input">
