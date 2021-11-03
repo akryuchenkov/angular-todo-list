@@ -5,11 +5,11 @@ import { TasksListPageComponent } from './pages/tasks-list-page/tasks-list-page.
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tasks',
     component: TasksListPageComponent,
   },
   {
-    path: ':id',
+    path: 'tasks/:id',
     component: TaskPageComponent,
   },
 ];

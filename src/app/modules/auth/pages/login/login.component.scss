@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+
+.link {
+  text-align: center;
+}

@@ -1,0 +1,12 @@
+<form class="form" [formGroup]="loginForm" (submit)="onLogin()">
+  <div class="field">
+    <label> Логин </label>
+    <input type="text" formControlName="login" />
+  </div>
+  <div class="field">
+    <label> Пароль </label>
+    <input type="password" formControlName="password" />
+  </div>
+  <button type="submit" [disabled]="loginForm.invalid">Войти</button>
+  <a class="link" [routerLink]="['../registration']">Зарегистрироваться</a>
+</form>
