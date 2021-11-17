@@ -12,7 +12,14 @@
   ></app-tasks-list>
 
   <section class="input">
-    <input type="text" [formControl]="taskText" />
-    <button [disabled]="taskText.invalid" (click)="addTask()">Добавить</button>
+    <app-input
+      placeholder="Введите текст задачи"
+      [formControl]="taskText"
+    ></app-input>
+    <app-button
+      text="Добавить"
+      [disabled]="taskText.invalid"
+      (click)="addTask()"
+    ></app-button>
   </section>
 </section>

@@ -10,3 +10,9 @@
   background: url(../../../../../assets/tasks-list-background.jpg);
   background-size: cover;
 }
+
+.input {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}

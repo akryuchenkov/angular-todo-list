@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TasksModule } from './modules/tasks/tasks.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from './modules/auth/auth.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AuthModule } from './modules/auth/auth.module';
     TasksModule,
     AuthModule,
     FontAwesomeModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

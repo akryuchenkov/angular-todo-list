@@ -7,19 +7,16 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegistrationComponent,
-    AuthLayoutComponent
-  ],
+  declarations: [LoginComponent, RegistrationComponent, AuthLayoutComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    SharedModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

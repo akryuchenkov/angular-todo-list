@@ -1,0 +1,14 @@
+<div class="container">
+  <label *ngIf="label" class="label">
+    <span>{{ label }}</span>
+  </label>
+  <input
+    class="input"
+    [class.full-width]="_fullWidth"
+    [class.input-with-label]="label"
+    type="text"
+    [value]="value"
+    (input)="onInput($event)"
+    [placeholder]="placeholder"
+  />
+</div>

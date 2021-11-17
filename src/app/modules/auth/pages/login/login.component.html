@@ -1,12 +1,22 @@
 <form class="form" [formGroup]="loginForm" (submit)="onLogin()">
-  <div class="field">
-    <label> Логин </label>
-    <input type="text" formControlName="login" />
-  </div>
-  <div class="field">
-    <label> Пароль </label>
-    <input type="password" formControlName="password" />
-  </div>
-  <button type="submit" [disabled]="loginForm.invalid">Войти</button>
+  <app-input
+    label="Логин"
+    placeholder="Введите логин"
+    fullWidth
+    formControlName="login"
+  ></app-input>
+
+  <app-input
+    label="Пароль"
+    placeholder="Введите пароль"
+    fullWidth
+    formControlName="password"
+  ></app-input>
+  <app-button
+    text="Войти"
+    type="submit"
+    fullWidth
+    [disabled]="loginForm.invalid"
+  ></app-button>
   <a class="link" [routerLink]="['../registration']">Зарегистрироваться</a>
 </form>

@@ -9,15 +9,22 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
 import { HttpClientModule } from '@angular/common/http';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [TasksListPageComponent, TasksListComponent, TaskPageComponent, TaskItemComponent],
+  declarations: [
+    TasksListPageComponent,
+    TasksListComponent,
+    TaskPageComponent,
+    TaskItemComponent,
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
     TasksRoutingModule,
+    SharedModule,
   ],
 })
 export class TasksModule {}
