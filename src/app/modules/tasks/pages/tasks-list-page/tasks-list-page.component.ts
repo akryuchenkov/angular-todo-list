@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TaskModel } from 'src/app/models/task.model';
@@ -26,7 +27,8 @@ export class TasksListPageComponent implements OnInit {
 
   constructor(
     private tasksService: TasksService,
-    private authService: AuthService
+    private authService: AuthService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -60,5 +62,30 @@ export class TasksListPageComponent implements OnInit {
     tempTask.isFinished = !tempTask.isFinished;
 
     this.tasksService.update(tempTask).subscribe(() => this.fetch());
+  }
+
+  fileChange(event: any) {
+    let fileList: FileList = event.target.files;
+    console.log("🚀 ~ file: tasks-list-page.component.ts ~ line 69 ~ TasksListPageComponent ~ fileChange ~ fileList", fileList)
+    if (fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData: FormData = new FormData();
+      formData.append('file', file, file.name);
+      let headers = new Headers();
+      headers.append('Content-Type', 'multipart/form-data');
+      headers.append('Accept', 'application/json');
+
+      this.http
+        .post(`http://localhost:3001`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Accept: 'application/json',
+          },
+        })
+        .subscribe(
+          (data) => console.log(data),
+          (error) => console.log(error)
+        );
+    }
   }
 }
