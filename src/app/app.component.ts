@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './modules/auth/services/auth.service';
 import axios from 'axios';
+import { AlertService } from './modules/shared/services/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -12,38 +13,22 @@ import axios from 'axios';
 export class AppComponent {
   title = 'todo-list';
 
+  public get alert() {
+    return {
+      isShow: this.alertService.isShow,
+      type: this.alertService.type,
+      message: this.alertService.message,
+    };
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router,
+    private alertService: AlertService,
     private http: HttpClient
   ) {
-    // if (!this.authService.isAuth) {
-    //   this.router.navigate(['auth', 'login']);
-    // }
-  }
-
-  onOpenFileDialog() {
-    document.getElementById('file-input')?.click();
-  }
-
-  fileChange(event: any) {
-    let fileList: FileList = event.target.files;
-    if (!fileList.length) {
-      return;
+    if (!this.authService.isAuth) {
+      this.router.navigate(['auth', 'login']);
     }
-
-    let file: File = fileList[0];
-
-    let formData: FormData = new FormData();
-    formData.append('file', file);
-
-    axios
-      .post(`http://localhost:3001`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(({ data }) => console.log(data))
-      .catch((error) => console.log(error));
   }
 }

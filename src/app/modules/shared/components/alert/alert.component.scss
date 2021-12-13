@@ -1,0 +1,23 @@
+.alert {
+  height: 30px;
+  width: 100px;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.success {
+  background-color: rgb(72, 186, 72);
+  color: black;
+}
+
+.error {
+  background-color: tomato;
+  color: white;
+}
+
+.info {
+  background-color: rgb(44, 192, 237);
+  color: white;
+}

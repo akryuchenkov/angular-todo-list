@@ -1,11 +1,6 @@
-<!-- <router-outlet></router-outlet> -->
-
-<button (click)="onOpenFileDialog()">Click Me</button>
-
-<input
-  id="file-input"
-  style="display: none"
-  type="file"
-  (change)="fileChange($event)"
-  placeholder="Upload file"
-/>
+<app-alert
+  [isShow]="alert.isShow"
+  [type]="alert.type"
+  [message]="alert.message"
+></app-alert>
+<router-outlet></router-outlet>

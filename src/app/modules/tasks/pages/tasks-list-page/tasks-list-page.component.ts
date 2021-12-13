@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TaskModel } from 'src/app/models/task.model';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AlertService } from 'src/app/modules/shared/services/alert.service';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class TasksListPageComponent implements OnInit {
   constructor(
     private tasksService: TasksService,
     private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +55,10 @@ export class TasksListPageComponent implements OnInit {
           -1
         )
       )
-      .subscribe(() => this.fetch());
+      .subscribe(() => {
+        this.alertService.show('Запить добавлена!', 'success');
+        this.fetch();
+      });
     this.taskText.setValue('');
   }
 
@@ -66,7 +71,10 @@ export class TasksListPageComponent implements OnInit {
 
   fileChange(event: any) {
     let fileList: FileList = event.target.files;
-    console.log("🚀 ~ file: tasks-list-page.component.ts ~ line 69 ~ TasksListPageComponent ~ fileChange ~ fileList", fileList)
+    console.log(
+      '🚀 ~ file: tasks-list-page.component.ts ~ line 69 ~ TasksListPageComponent ~ fileChange ~ fileList',
+      fileList
+    );
     if (fileList.length > 0) {
       let file: File = fileList[0];
       let formData: FormData = new FormData();
