@@ -51,12 +51,12 @@ export class TasksListPageComponent implements OnInit {
           '',
           new Date().getTime(),
           false,
-          -1,
+          this.authService.currentUser?.id ?? -1,
           -1
         )
       )
       .subscribe(() => {
-        this.alertService.show('Запить добавлена!', 'success');
+        this.alertService.show('Запить добавлена!', 'error');
         this.fetch();
       });
     this.taskText.setValue('');
