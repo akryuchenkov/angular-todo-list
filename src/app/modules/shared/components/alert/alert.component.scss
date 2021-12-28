@@ -1,15 +1,21 @@
 .alert {
-  height: 30px;
-  width: 100px;
+  height: 40px;
+  width: 200px;
 
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 10px;
 }
 
 .success {
   background-color: rgb(72, 186, 72);
-  color: black;
+  color: white;
 }
 
 .error {

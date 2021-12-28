@@ -26,6 +26,9 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   @Input()
   fullWidth: string | undefined;
 
+  @Input()
+  type: 'text' | 'password' = 'text';
+
   get _fullWidth() {
     return this.fullWidth === '';
   }

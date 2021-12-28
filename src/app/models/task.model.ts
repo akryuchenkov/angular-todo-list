@@ -10,6 +10,8 @@ export class TaskModel {
     public isFinished: boolean,
     public user: UserId,
     public group: number,
+    public startDate: number,
+    public endDate: number,
     public id?: TaskId
   ) {}
 
@@ -21,6 +23,8 @@ export class TaskModel {
       obj.isFinished,
       obj.user,
       obj.group,
+      obj.startDate,
+      obj.endDate,
       obj.id
     );
   }
@@ -33,11 +37,23 @@ export class TaskModel {
       task.isFinished,
       task.user,
       task.group,
+      task.startDate,
+      task.endDate,
       task.id
     );
   }
 
   static empty() {
-    return new TaskModel('', '', 0, false, -1, -1, -1);
+    return new TaskModel(
+      '',
+      '',
+      0,
+      false,
+      -1,
+      -1,
+      new Date().getTime(),
+      new Date().getTime(),
+      -1
+    );
   }
 }

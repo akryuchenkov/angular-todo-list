@@ -1,1 +1,23 @@
-<p>registration works!</p>
+<form class="form" [formGroup]="registrationForm" (submit)="onRegistration()">
+  <app-input
+    label="Логин"
+    placeholder="Введите логин"
+    fullWidth
+    formControlName="login"
+  ></app-input>
+
+  <app-input
+    label="Пароль"
+    placeholder="Введите пароль"
+    type="password"
+    fullWidth
+    formControlName="password"
+  ></app-input>
+  <app-button
+    text="Зарегистрироваться"
+    type="submit"
+    fullWidth
+    [disabled]="registrationForm.invalid"
+  ></app-button>
+  <a class="link" [routerLink]="['../login']">Авторизироваться</a>
+</form>

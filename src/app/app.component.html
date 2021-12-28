@@ -3,4 +3,11 @@
   [type]="alert.type"
   [message]="alert.message"
 ></app-alert>
+
+<div class="user-container">
+  <p>
+    {{ currentUser?.login }}
+  </p>
+  <app-button text="Выйти" (click)="signOut()"></app-button>
+</div>
 <router-outlet></router-outlet>

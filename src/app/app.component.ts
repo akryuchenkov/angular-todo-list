@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './modules/auth/services/auth.service';
-import axios from 'axios';
-import { AlertService } from './modules/shared/services/alert.service';
+import { AuthService } from './modules/shared/services/auth/auth.service';
+import { AlertService } from './modules/shared/services/alert/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +20,22 @@ export class AppComponent {
     };
   }
 
+  public get currentUser() {
+    return this.authService.currentUser;
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertService: AlertService,
-    private http: HttpClient
+    private alertService: AlertService
   ) {
     if (!this.authService.isAuth) {
       this.router.navigate(['auth', 'login']);
     }
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.router.navigate(['auth', 'login']);
   }
 }

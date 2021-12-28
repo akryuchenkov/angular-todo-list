@@ -15,4 +15,5 @@
     </p>
   </div>
   <p>{{ task.date | date: 'short' }}</p>
+  <p>Сделано за {{ task.endDate - task.startDate | date: 'mediumTime' }}</p>
 </div>

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TaskModel } from 'src/app/models/task.model';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { AlertService } from 'src/app/modules/shared/services/alert.service';
+import { AuthService } from 'src/app/modules/shared/services/auth/auth.service';
+import { AlertService } from 'src/app/modules/shared/services/alert/alert.service';
 import { TasksService } from '../../services/tasks.service';
 
 @Component({
@@ -11,10 +11,7 @@ import { TasksService } from '../../services/tasks.service';
   styleUrls: ['./tasks-list-page.component.scss'],
 })
 export class TasksListPageComponent implements OnInit {
-  tasks: TaskModel[] = [
-    new TaskModel('Провести занятие', '', new Date().getTime(), false, -1, -1),
-    new TaskModel('Вынести мусор', '', new Date().getTime(), false, -1, -1),
-  ];
+  tasks: TaskModel[] = [];
 
   taskText = new FormControl('', [Validators.required]);
 
@@ -52,11 +49,13 @@ export class TasksListPageComponent implements OnInit {
           new Date().getTime(),
           false,
           this.authService.currentUser?.id ?? -1,
+          new Date().getTime(),
+          new Date().getTime(),
           -1
         )
       )
       .subscribe(() => {
-        this.alertService.show('Запить добавлена!', 'error');
+        this.alertService.show('Запить добавлена!', 'success');
         this.fetch();
       });
     this.taskText.setValue('');
@@ -65,35 +64,8 @@ export class TasksListPageComponent implements OnInit {
   toggleIsFinished(task: TaskModel) {
     const tempTask = TaskModel.copy(task);
     tempTask.isFinished = !tempTask.isFinished;
+    tempTask.endDate = new Date().getTime();
 
     this.tasksService.update(tempTask).subscribe(() => this.fetch());
-  }
-
-  fileChange(event: any) {
-    let fileList: FileList = event.target.files;
-    console.log(
-      '🚀 ~ file: tasks-list-page.component.ts ~ line 69 ~ TasksListPageComponent ~ fileChange ~ fileList',
-      fileList
-    );
-    if (fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData: FormData = new FormData();
-      formData.append('file', file, file.name);
-      let headers = new Headers();
-      headers.append('Content-Type', 'multipart/form-data');
-      headers.append('Accept', 'application/json');
-
-      this.http
-        .post(`http://localhost:3001`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Accept: 'application/json',
-          },
-        })
-        .subscribe(
-          (data) => console.log(data),
-          (error) => console.log(error)
-        );
-    }
   }
 }
