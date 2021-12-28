@@ -4,7 +4,7 @@
   [message]="alert.message"
 ></app-alert>
 
-<div class="user-container">
+<div *ngIf="isAuth" class="user-container">
   <p>
     {{ currentUser?.login }}
   </p>

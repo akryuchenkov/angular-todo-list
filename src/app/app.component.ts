@@ -24,6 +24,10 @@ export class AppComponent {
     return this.authService.currentUser;
   }
 
+  public get isAuth() {
+    return this.authService.isAuth;
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router,
